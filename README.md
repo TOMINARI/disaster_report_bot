@@ -9,7 +9,7 @@
 |:---|:---|:---|
 |APPLICATION_NAME |アプリケーション名　|DropBoxフォルダ名に利用 |
 |authstr |Google Spread　Sheet アクセス認証用　JSON | 参考はこちら。https://dream-yt.github.io/post/spreadsheet-via-service-account/|
-|DROPBOXACCESSTOKEN　|DropBoxアクセストークン | |
+|DROPBOXACCESSTOKEN　|DropBoxアクセストークン | https://flashair-developers.github.io/website/docs/tutorials/lua/6.html|
 |LineMessageAPIChannelAccessToken |LINEメッセージングアプリ アクセストークン ||
 |LineMessageAPIChannelSecret |LINEメッセージングアプリ チャンネルシークレット ||
 |MapURL |地図表示モジュールURL |login module のredirect URIにも利用 |
