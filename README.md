@@ -8,7 +8,7 @@
 | 環境変数名 | 内容 | 備考 |
 |:---|:---|:---|
 |APPLICATION_NAME |アプリケーション名　|DropBoxフォルダ名に利用 |
-|authstr |Google Spread　Sheet アクセス認証用　JSON | |
+|authstr |Google Spread　Sheet アクセス認証用　JSON | 参考はこちら。https://dream-yt.github.io/post/spreadsheet-via-service-account/|
 |DROPBOXACCESSTOKEN　|DropBoxアクセストークン | |
 |LineMessageAPIChannelAccessToken |LINEメッセージングアプリ アクセストークン ||
 |LineMessageAPIChannelSecret |LINEメッセージングアプリ チャンネルシークレット ||
