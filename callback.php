@@ -103,7 +103,7 @@ foreach ($events as $event) {
             );
         
             $json = file_get_contents($url, false, stream_context_create($context));
-            $bot->replyText($event->getReplyToken(), $json);
+            //$bot->replyText($event->getReplyToken(), $json);
 
 //            $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
             $arr = json_decode($json,true);
