@@ -83,6 +83,77 @@ foreach ($events as $event) {
 
         if ( $tst ) {
           $bot->replyText($event->getReplyToken(), "入力位置情報 ${user_name} ${title} ${address} ${latitude} ${longitude}");
+
+          //  アクセストークンを取得
+          $url = 'https://pf.smart.city.toyama.toyama.jp/wso2am/oauth2/token';
+          $data = array(
+                'grant_type' => 'password',
+                'username' => 'evolinq-hackathon21',
+                'password' => 'U0dw-O_X',
+                'client_id' => 'Qf_rf8ykcdgTEXmfpyfrdILbqica',
+                'client_secret' => 'LQ83Ce7Zxt7KPXxyFfCVIfXpbEMa',
+            );
+        
+            $context = array(
+                'http' => array(
+                    'method'  => 'POST',
+                    'header'  => implode("\r\n", array('Content-Type: application/x-www-form-urlencoded',)),
+                    'content' => http_build_query($data)
+                )
+            );
+        
+            $json = file_get_contents($url, false, stream_context_create($context));
+        
+            $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
+            $arr = json_decode($json,true);
+        
+          //  データを登録・更新
+          $headers = array(
+            'Content-Type:application/json',
+            'Accept:application/json',
+            'Authorization:Bearer '. $arr['access_token'],
+            );
+          $url = 'https://api.smart.city.toyama.toyama.jp/orion/v1.0/updateContext';
+        
+          $arr = 	array(
+              'contextElements' => [
+              [
+                'id'=>'jp.toyama.toyama.smart.city.codefortoyama.hack5'.$user_name,
+                    'type'=> 'Hackathon5',
+                    'attributes' => [
+                      [
+                        'name' => 'location', 
+                    'type'=>'geo:point',
+                    'value'=> "".$latitude.",".$longitude,
+                  ],
+                    [
+                      'name' =>'uploadDate',
+                        'type' => 'Datetime',
+                    'value' => date("Y/m/d H:i:s"),
+                  ],
+                  [
+                        'name' =>'name', 
+                        'type' => 'Text',
+                        'value' => $user_name,
+                  ],
+                    [
+                      'name'=>'item1', 
+                    'type' => 'Text',
+                        'value' => 'Item1',
+                      ],
+                  [ 
+                    'name' => 'item10', 
+                    'type' => 'Number',
+                        'value' => 999,
+                  ],
+                ],
+              ],
+            ],
+            'updateAction' => "APPEND",
+            );
+        
+          $json = json_encode($arr);
+        
         }
         else
         {
