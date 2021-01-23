@@ -155,8 +155,17 @@ foreach ($events as $event) {
         
           $json = json_encode($arr);
 
-          $bot->replyText($event->getReplyToken(), $json);
-
+          $context = array(
+            'http' => array(
+                'method'  => 'POST',
+                'header'  => implode("\r\n", $headers),
+                'content' => $json,
+            )
+        );
+    
+        $res = file_get_contents($url, false, stream_context_create($context));
+      
+        $bot->replyText($event->getReplyToken(), $res);
 
         }
         else
