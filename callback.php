@@ -79,18 +79,15 @@ foreach ($events as $event) {
         $latitude = $event->getLatitude();
         $longitude = $event->getLongitude();
 
-
-
-
        $tst =  AddLocationLink( $response, $event );
 
         if ( $tst ) {
-          $bot->replyText($event->getReplyToken(), "入力位置情報 ${title} ${address} ${latitude} ${longitude}");
-          }
+          $bot->replyText($event->getReplyToken(), "入力位置情報 ${user_name} ${title} ${address} ${latitude} ${longitude}");
+        }
         else
-           {
+        {
           $bot->replyText($event->getReplyToken(), "【警告】LINE Botと友達になっていないのでユーザ名が取得できません。\n位置情報が正しく記録できないのでLINE Botと友達になって下さい。\n入力位置情報 ${title} ${address} ${latitude} ${longitude}");
-             }
+        }
          continue;
 
 
