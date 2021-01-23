@@ -118,8 +118,8 @@ foreach ($events as $event) {
           $arr = 	array(
               'contextElements' => [
               [
-                'id'=>'jp.toyama.toyama.smart.city.codefortoyama.hack5'.$user_name,
-                    'type'=> 'Hackathon5',
+                'id'=>'jp.toyama.toyama.smart.city.codefortoyama.hack2'.$user_name,
+                    'type'=> 'Hackathon2',
                     'attributes' => [
                       [
                         'name' => 'location', 
@@ -153,7 +153,10 @@ foreach ($events as $event) {
             );
         
           $json = json_encode($arr);
-        
+
+          $bot->replyText($event->getReplyToken(), $json);
+
+
         }
         else
         {
