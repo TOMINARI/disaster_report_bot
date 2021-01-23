@@ -1,8 +1,9 @@
 {
 "require": {
         "linecorp/line-bot-sdk": "^3.10",
-                "monolog/monolog": "^1.23",
-                "google/apiclient": "^2.0",
-                "simonbackx/slack-php-webhook": "~1.0"
+        "monolog/monolog": "^1.23",
+        "google/apiclient": "^2.0",
+        "simonbackx/slack-php-webhook": "~1.0",
+        "ext-mbstring": "*"
     }
-    }
+}
