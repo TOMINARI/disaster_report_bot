@@ -82,7 +82,7 @@ foreach ($events as $event) {
        $tst =  AddLocationLink( $response, $event );
 
         if ( $tst ) {
-          $bot->replyText($event->getReplyToken(), "入力位置情報 ${user_name} ${title} ${address} ${latitude} ${longitude}");
+          //$bot->replyText($event->getReplyToken(), "入力位置情報 ${user_name} ${title} ${address} ${latitude} ${longitude}");
 
           //  アクセストークンを取得
           $url = 'https://pf.smart.city.toyama.toyama.jp/wso2am/oauth2/token';
@@ -103,7 +103,8 @@ foreach ($events as $event) {
             );
         
             $json = file_get_contents($url, false, stream_context_create($context));
-        
+            $bot->replyText($event->getReplyToken(), $json);
+
 //            $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
             $arr = json_decode($json,true);
         
