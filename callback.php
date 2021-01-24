@@ -511,6 +511,7 @@ foreach ($events as $event) {
             [
               "type"=>"location",
               "title"=>"助けて！が届いています",
+              "address"=>"ここです",
               "latitude"=>35.688806,
               "longitude"=>139.701739,
             ]
