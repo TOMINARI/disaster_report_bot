@@ -67,6 +67,9 @@ foreach ($events as $event) {
     error_log('Non message event has come');
     continue;
   }
+  
+  $bot->replyText($event->getReplyToken(), $event-getType());
+  continue;
 
   if($event->getText() == "たすけて！")
   {
