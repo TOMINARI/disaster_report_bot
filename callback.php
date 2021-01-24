@@ -63,6 +63,7 @@ $target_sheetname = GetTargetSheetName( $spreadsheetId);
  $log->addWarning("target_sheet  ${target_sheetname}\n");
 
 foreach ($events as $event) {
+  $bot->replyText($event);
   if($event->getText() == "たすけて！")
   {
     $bot->replyText($event->getReplyToken(), "助けを呼びます！位置情報を送信してください。");
