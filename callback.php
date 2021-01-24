@@ -509,10 +509,12 @@ foreach ($events as $event) {
                 "text"=>"Hello, world1",
             ],
             [
-                "type"=>"text",
-                "text"=>"Hello, world2",
-            ]
-        ]
+              "type": "location",
+              "title": "my location",
+              "address": "〒160-0022 東京都新宿区新宿４丁目１−６", 
+              "latitude": 35.688806,
+              "longitude": 139.701739  
+          ]
       );
       
       $json = json_encode($arr);
