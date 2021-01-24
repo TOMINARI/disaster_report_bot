@@ -503,17 +503,30 @@ foreach ($events as $event) {
       $url = 'https://api.line.me/v2/bot/message/broadcast';
 
       $arr = 	array(
-        "messages":[
-            {
-                "type":"text",
-                "text":"Hello, world1"
-            },
-            {
-                "type":"text",
-                "text":"Hello, world2"
-            }
-        ]);
+        'messages' => [
+            [
+                "type"=>"text",
+                "text"=>"Hello, world1",
+            ],
+            [
+                "type"=>"text",
+                "text"=>"Hello, world2",
+            ]
+        ]
+      );
+      
+      $json = json_encode($arr);
+      return $json;
+/*
+      $context = array(
+        'http' => array(
+            'method'  => 'POST',
+            'header'  => implode("\r\n", $headers),
+            'content' => $json,
+        )
+        
       $json = file_get_contents($url, false, stream_context_create($context));
 
       return $json;
+      */
    }
