@@ -510,8 +510,7 @@ foreach ($events as $event) {
             ],
             [
               "type"=>"location",
-              "title"=>"my location",
-              "address"=>"〒160-0022 東京都新宿区新宿４丁目１−６", 
+              "title"=>"助けて！が届いています",
               "latitude"=>$latitude,
               "longitude"=>$longitude
             ]
