@@ -164,6 +164,8 @@ foreach ($events as $event) {
         );
     
         $res = file_get_contents($url, false, stream_context_create($context));
+
+        $res = broadcast();
       
         $bot->replyText($event->getReplyToken(), $res);
 
@@ -487,4 +489,31 @@ foreach ($events as $event) {
 
         $bot->replyText($event->getReplyToken(), "その他メッセージ   ");
 
+   }
+   
+   function broadcast() 
+   {
+
+      //  データを登録・更新
+      $headers = array(
+        'Content-Type:application/json',
+        'Authorization:Bearer '. getenv('LineMessageAPIChannelAccessToken'),
+      );
+
+      $url = 'https://api.line.me/v2/bot/message/broadcast';
+
+      $arr = 	array(
+        "messages":[
+            {
+                "type":"text",
+                "text":"Hello, world1"
+            },
+            {
+                "type":"text",
+                "text":"Hello, world2"
+            }
+        ]);
+      $json = file_get_contents($url, false, stream_context_create($context));
+
+      return $json;
    }
