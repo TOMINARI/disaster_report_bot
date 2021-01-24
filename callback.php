@@ -63,7 +63,11 @@ $target_sheetname = GetTargetSheetName( $spreadsheetId);
  $log->addWarning("target_sheet  ${target_sheetname}\n");
 
 foreach ($events as $event) {
-  $bot->replyText($event->getReplyToken(), $event);
+  $bot->replyText  if (!($event instanceof \LINE\LINEBot\Event\MessageEvent)) {
+    error_log('Non message event has come');
+    continue;
+  }
+($event->getReplyToken(), $event);
   if($event->getText() == "たすけて！")
   {
     $bot->replyText($event->getReplyToken(), "助けを呼びます！位置情報を送信してください。");
