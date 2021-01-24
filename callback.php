@@ -522,7 +522,8 @@ foreach ($events as $event) {
             'method'  => 'POST',
             'header'  => implode("\r\n", $headers),
             'content' => $json,
-        );
+        )
+      );
         
       $json = file_get_contents($url, false, stream_context_create($context));
 
