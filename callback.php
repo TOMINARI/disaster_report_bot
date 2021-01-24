@@ -165,8 +165,8 @@ foreach ($events as $event) {
     
         $res = file_get_contents($url, false, stream_context_create($context));
 
-        $res = broadcast();
-      
+        $res = broadcast($latitude,$longitude);
+
         $bot->replyText($event->getReplyToken(), $res);
 
         }
@@ -491,7 +491,7 @@ foreach ($events as $event) {
 
    }
    
-   function broadcast() 
+   function broadcast($latitude,$longitude) 
    {
 
       //  データを登録・更新
@@ -512,9 +512,10 @@ foreach ($events as $event) {
               "type"=>"location",
               "title"=>"my location",
               "address"=>"〒160-0022 東京都新宿区新宿４丁目１−６", 
-              "latitude"=>35.688806,
-              "longitude"=>139.701739  
-          ]
+              "latitude"=>$latitude,
+              "longitude"=>$longitude
+            ]
+        ]
       );
       
       $json = json_encode($arr);
