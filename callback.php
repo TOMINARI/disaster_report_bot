@@ -516,8 +516,7 @@ foreach ($events as $event) {
       );
       
       $json = json_encode($arr);
-      return $json;
-/*
+
       $context = array(
         'http' => array(
             'method'  => 'POST',
@@ -528,5 +527,4 @@ foreach ($events as $event) {
       $json = file_get_contents($url, false, stream_context_create($context));
 
       return $json;
-      */
    }
