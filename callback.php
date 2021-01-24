@@ -68,13 +68,12 @@ foreach ($events as $event) {
     continue;
   }
   
-  $bot->replyText($event->getReplyToken(), $event-getType());
-  continue;
-
-  if($event->getText() == "たすけて！")
-  {
-    $bot->replyText($event->getReplyToken(), "助けを呼びます！位置情報を送信してください。");
-    continue;
+  if (($event instanceof \LINE\LINEBot\Event\MessageEvent\TextMessage)) {
+    if($event->getText() == "たすけて！")
+    {
+      $bot->replyText($event->getReplyToken(), "助けを呼びます！位置情報を送信してください。");
+      continue;
+    }
   }
 //  add 20200607   check in mapmodule
   //  ユーザ名の取得
