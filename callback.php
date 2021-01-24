@@ -517,7 +517,7 @@ foreach ($events as $event) {
         'messages' => [
             [
                 "type"=>"text",
-                "text"=>"Hello, world1",
+                "text"=>"助けてください",
             ],
             [
               "type"=>"location",
