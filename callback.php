@@ -71,7 +71,7 @@ foreach ($events as $event) {
   if($event->getText() == "たすけて！")
   {
     $bot->replyText($event->getReplyToken(), "助けを呼びます！位置情報を送信してください。");
-    break;
+    continue;
   }
 //  add 20200607   check in mapmodule
   //  ユーザ名の取得
